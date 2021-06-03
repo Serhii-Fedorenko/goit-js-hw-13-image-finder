@@ -19,7 +19,7 @@ export const getSubmitForm = e => {
   if (inputValue.length) {
     apiService(inputValue, page, API_KEY)
       .then(images => {
-        images.length
+        images.length >= 12
           ? (refs.loadMore.style.display = 'block')
           : (refs.loadMore.style.display = 'none');
           markupTpl(images);
@@ -34,7 +34,7 @@ export const moreImages = () => {
     .then(images => {
       markupTpl(images);
       scrollTo({
-        top: document.documentElement.offsetHeight - 1600,
+        top: document.documentElement.offsetHeight - 1,
         behavior: 'smooth',
       });
     })
